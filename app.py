@@ -48,7 +48,6 @@ def post_create():
     if post.title and post.content:
         session.add(post)
         session.commit()
-        print(f"{form_data=}")
         return redirect(url_for(index.__name__))
     return render_template("form.html", post = PostForm("", "").__dict__)
 
