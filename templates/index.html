@@ -1,22 +1,14 @@
 {% extends "base.html" %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
     {% block content%}
     <ul>
         {% for post in posts %}
         <li>
-            <a href="{{ url_for('post_view', post_id=post.id ) }}">{{item.title}}</a>
+            <a href="{{ url_for('post_view', post_id=post.id ) }}">{{post.title}}</a>
             
         </li>
-        <span class="badge text-bg-primary">{{item.created_at}}</span>
+        <span class="badge text-bg-primary">{{post.created_at}}</span>
         {% endfor %}
     </ul>
     {% endblock %}
-</body>
-</html>

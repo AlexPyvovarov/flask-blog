@@ -20,11 +20,25 @@ def get_posts():
 
 @app.get("/post_view")
 def post_view():
-    id = str(request.args.get("post_id"))
+    id = int(request.args.get("post_id"))
     post = session.get_one(Posts, id)
     post = post.model_dump()
     return render_template("view.html", post=post)
 
 
+@app.post("/posts/create")
+def post_create():
+    pass
+
+
+def post_mock_data():
+    posts = [Posts(title=f"{x}", content=f"{x}") for x in range(1, 11)]
+    session.add_all(posts)
+    session.commit()
+
+
+
+
 if __name__ == "__main__":
+    post_mock_data()
     app.run(debug=True)
