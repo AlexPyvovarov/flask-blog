@@ -53,5 +53,6 @@ def post_create():
     return render_template("form.html", post = PostForm("", "").__dict__)
 
 
+
 if __name__ == "__main__":
     app.run(debug=True)
