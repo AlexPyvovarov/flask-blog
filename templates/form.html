@@ -1,0 +1,13 @@
+{% extends 'base.html' %}   
+
+{% block content %}
+    <form action="" method="post">
+        {% for key, val in post.items() %}
+        <div>
+            <label for="{{key}}">{{key}}</label>
+            <input type="text" name="{{key}}" id="{{key}}">
+        </div>
+        {% endfor %}
+        <input type="submit" value="Send form data">
+    </form>
+{% endblock %}
